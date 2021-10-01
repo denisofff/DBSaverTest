@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>vtb.zf.base</groupId>
+    <artifactId>vtb-zf-base-test</artifactId>
+    <version>1.0</version>
+
+    <properties>
+        <encoding>UTF-8</encoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+
+        <vtb-zf-starter.version>1.0</vtb-zf-starter.version>
+        <vtb-zf-jpa-starter.version>1.0</vtb-zf-jpa-starter.version>
+        <vtb-zf-kafka-starter.version>1.0</vtb-zf-kafka-starter.version>
+        <vtb-zf-base-dto.version>1.0</vtb-zf-base-dto.version>
+
+        <org.springframework.boot.version>2.5.1</org.springframework.boot.version>
+        <!-- org.testcontainers.version>1.15.3</org.testcontainers.version -->
+        <!-- springfox-swagger.version>3.0.0</springfox-swagger.version -->
+
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <!-- maven-resources-plugin.version>3.2.0</maven-resources-plugin.version -->
+        <!-- maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version -->
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${org.springframework.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.vtb.zf.common</groupId>
+            <artifactId>vtb-zf-starter</artifactId>
+            <version>${vtb-zf-starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.vtb.zf.common</groupId>
+            <artifactId>vtb-zf-jpa-starter</artifactId>
+            <version>${vtb-zf-jpa-starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.vtb.zf.common</groupId>
+            <artifactId>vtb-zf-kafka-starter</artifactId>
+            <version>${vtb-zf-kafka-starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.vtb.zf.base</groupId>
+            <artifactId>vtb-zf-base-dto</artifactId>
+            <version>${vtb-zf-base-dto.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <!--<version> (managed by Spring Boot)42.2.5 </version> -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>${encoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${org.springframework.boot.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
